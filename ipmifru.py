@@ -2,9 +2,8 @@
 import subprocess
 from sys import executable
 
-login = str(input('Введите логин: '))
-pwd = str(input('Введите пароль: '))
 loc = int(input('Локально(1) или удалённо(2). Вариант удалённой прошивки не работает для серверов ASUS: ')) #Выбор режима обновления FRU
+
 
     
 def multifru_net():
@@ -93,7 +92,11 @@ def remote_srv(): #Функция удалённого обновления FRU
             return
 if loc == 2:
     ip = str(input('введите IP сервера: '))
+    login = str(input('Введите логин: '))
+    pwd = str(input('Введите пароль: '))
     remote_srv()
     
 elif loc == 1:
+    login = str(input('Введите логин: '))
+    pwd = str(input('Введите пароль: '))
     local_srv()
