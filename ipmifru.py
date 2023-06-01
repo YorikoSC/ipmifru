@@ -179,3 +179,7 @@ elif loc == 1:
     login = str(input('Введите логин: '))
     pwd = str(input('Введите пароль: '))
     local_srv()
+                       
+print('Работа скрипта завершена')
+input('Нажмите Enter для выхода')
+exit()
