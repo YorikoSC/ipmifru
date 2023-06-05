@@ -3,8 +3,8 @@ import subprocess
 from sys import executable
 
 dev = int(input('Gigabyte(1) или ASUS(2): ')#Выбор девелопера.
-if dev == 1: #Выбор режима обновления FRU.
-    loc = int(input('Локально(1) или удалённо(2): '))
+    if dev == 1: #Выбор режима обновления FRU.
+        loc = int(input('Локально(1) или удалённо(2): '))
 
     
 def multifru_net(): #Функция обновления полей(удаленно) при наличии двух FRU на сервере
