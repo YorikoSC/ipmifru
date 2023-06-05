@@ -3,8 +3,8 @@ import subprocess
 from sys import executable
 
 dev = int(input('Gigabyte(1) или ASUS(2): ')#Выбор девелопера.
-if dev == 1:
-    loc = int(input('Локально(1) или удалённо(2): ')) #Выбор режима обновления FRU.
+if dev == 1: #Выбор режима обновления FRU.
+    loc = int(input('Локально(1) или удалённо(2): '))
 
     
 def multifru_net(): #Функция обновления полей(удаленно) при наличии двух FRU на сервере
@@ -143,29 +143,29 @@ def local_srv(): #Функция локального обновления FRU
     com = str(input('Шьём весь FRU (y/n): '))
     if com == ('n'):
         process = subprocess.run(['/usr/bin/ipmitool', 'shell'])
-    else:
+    elif com == ('y'):
         frucount = int(input('Количество FRU на сервере: ')
-        if frucount == 1:
-            singlefru_local()
-        elif frucount == 2:
-            multifru_local()
-        else:
-            print ('Введено недопустимое значение')
-            return
+    if frucount == 1:
+        singlefru_local()
+    elif frucount == 2:
+        multifru_local()
+    else:
+        print ('Введено недопустимое значение')
+        return
             
 def remote_srv(): #Функция удалённого обновления FRU
     com = str(input('Шьём весь FRU (y/n): '))
     if com == ('n'):
         process = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
-    else:
+    elif com == ('y'):
         frucount = int(input('Количество FRU на сервере: ')
-        if frucount == 1:
-            singlefru_net()
-        elif frucount == 2:
-            multifru_net()
-        else:
-            print ('Введено недопустимое значение')
-            return
+    if frucount == 1:
+        singlefru_net()
+    elif frucount == 2:
+        multifru_net()
+    else:
+        print ('Введено недопустимое значение')
+        return
             
 if loc == 2:
     ip = str(input('введите IP сервера: '))
