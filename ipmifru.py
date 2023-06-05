@@ -147,7 +147,7 @@ def local_srv(): #Функция локального обновления FRU
     if com == ('n'):
         process = subprocess.run(['/usr/bin/ipmitool', 'shell'])
     elif com == ('y'):
-        frucount = int(input('Количество FRU на сервере: ')
+        frucount = int(input('Количество FRU на сервере: '))
     if frucount == 1:
         singlefru_local()
     elif frucount == 2:
@@ -161,7 +161,7 @@ def remote_srv(): #Функция удалённого обновления FRU
     if com == ('n'):
         process = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
     elif com == ('y'):
-        frucount = int(input('Количество FRU на сервере: ')
+        frucount = int(input('Количество FRU на сервере: '))
     if frucount == 1:
         singlefru_net()
     elif frucount == 2:
