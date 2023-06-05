@@ -3,11 +3,12 @@ import subprocess
 from sys import executable
 
 dev = int(input('Gigabyte(1) или ASUS(2): '))#Выбор девелопера.
-while dev != 2: #Выбор режима обновления FRU.
+while dev == 1: #Выбор режима обновления FRU.
     if dev == 1:
         loc = int(input('Локально(1) или удалённо(2): '))
-    else: #Асуса нет
+    elif dev == 2: #Асуса нет
         print ('Данный функционал на данный момент не реализован')
+        dev == 1
 
     
 def multifru_net(): #Функция обновления полей(удаленно) при наличии двух FRU на сервере
