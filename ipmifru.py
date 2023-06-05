@@ -5,7 +5,7 @@ from sys import executable
 dev = int(input('Gigabyte(1) или ASUS(2): ')#Выбор девелопера.
 if dev == 1:
 loc = int(input('Локально(1) или удалённо(2): ')) #Выбор режима обновления FRU.
-elid dev == 2L:
+elif dev == 2:
      print ('Извините, функционал, на данном этапе, не доступен')
      return
     
