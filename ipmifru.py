@@ -145,7 +145,7 @@ def local_srv(): #Функция локального обновления FRU
     com = str(input('Шьём весь FRU (y/n): '))
     if com == ('n'):
         process = subprocess.run(['/usr/bin/ipmitool', 'shell'])
-    else:
+    elif com == ('y')::
         frucount = int(input('Количество FRU на сервере: ')
         if frucount == 1:
             singlefru_local()
