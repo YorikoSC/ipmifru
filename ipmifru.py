@@ -147,11 +147,11 @@ def local_srv(): #Функция локального обновления FRU
         process = subprocess.run(['/usr/bin/ipmitool', 'shell'])
     elif com == ('y'):
         frucount = int(input('Количество FRU на сервере: ')
-        if frucount == 1:
+          if frucount == 1:
             singlefru_local()
-        elif frucount == 2:
+          elif frucount == 2:
             multifru_local()
-        else:
+          else:
             print ('Введено недопустимое значение')
             return
             
