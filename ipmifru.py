@@ -9,10 +9,10 @@ elif dev == 2: #Асуса нет
         print ('Данный функционал на данный момент не реализован')
         quit()
 
-def data(inpt, chk):
+def data(inpt):
     while True:
         inpt = input()
-        if chk(inpt):
+        def chk(inpt):
             confirm = input(f"{inpt} - давнные верны? (y/n)?")
             if confirm.lower() == 'y':
                 return inpt
