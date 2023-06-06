@@ -21,7 +21,7 @@ def data(inpt):
 def multifru_net(): #Функция обновления полей(удаленно) при наличии двух FRU на сервере
     #CPN = str(input('Модель шасси (производителя): '))#
     print ('Модель шасси (производителя): ')
-    CPN = data()
+    CPN = data(inpt)
     CSN = str(input('Серийник шасси: '))
     PN = str(input('Имя сервера: '))
     PPN = str(input('Парт номер(ТИС): '))
