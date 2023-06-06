@@ -9,20 +9,15 @@ if dev == 1:
 elif dev == 2: #Асуса нет
         print ('Данный функционал на данный момент не реализован')
         quit()
-        
-def on_press(key):
 
 def data(): #Ввод и проверка данных до передачи в переменные функций-редакторов
-    keyboard_listener = keyboard.Listener(on_press=on_press)
-    keyboard_listener.start()
     while True:
         resp = input()
         if resp:
-            confirm = on_press(f"{resp} - давнные верны? (y/n)?")
+            confirm = input(f"{resp} - давнные верны? (y/n)?")
             if confirm.lower() == 'y':
                 return resp
         print ('Повторите ввод')
-    keyboard_listener.stop()
     
 def multifru_net(): #Функция обновления полей(удаленно) при наличии двух FRU на сервере
     print ('Модель шасси (производителя): ')
