@@ -1,7 +1,6 @@
 #!/usr/bin/python3.11
 import subprocess
 from sys import executable
-from pynput import keyboard
 
 dev = int(input('Выбирете производителя: Gigabyte(1) или ASUS(2): '))#Выбор девелопера.
 if dev == 1:
