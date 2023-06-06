@@ -9,9 +9,18 @@ elif dev == 2: #Асуса нет
         print ('Данный функционал на данный момент не реализован')
         quit()
 
+def data(inpt, chk):
+    while True:
+        inpt = input()
+        if chk(inpt):
+            confirm = input(f"{inpt} - давнные верны? (y/n)?")
+            if confirm.lower() == 'y':
+                return inpt
+        print ('Повторите ввод')
     
 def multifru_net(): #Функция обновления полей(удаленно) при наличии двух FRU на сервере
-    CPN = str(input('Модель шасси (производителя): '))
+    #CPN = str(input('Модель шасси (производителя): '))#
+    CPN = data('Модель шасси (производителя): ')
     CSN = str(input('Серийник шасси: '))
     PN = str(input('Имя сервера: '))
     PPN = str(input('Парт номер(ТИС): '))
