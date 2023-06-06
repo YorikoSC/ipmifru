@@ -12,7 +12,7 @@ elif dev == 2: #Асуса нет
 def data():
     while True:
         inpt = str(input())
-        def chk(inpt):
+        if chk(inpt):
             confirm = input(f"{inpt} - давнные верны? (y/n)?")
             if confirm.lower() == 'y':
                 return inpt
