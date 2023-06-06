@@ -1,6 +1,7 @@
 #!/usr/bin/python3.11
 import subprocess
 from sys import executable
+from pynput import keyboard
 
 dev = int(input('Выбирете производителя: Gigabyte(1) или ASUS(2): '))#Выбор девелопера.
 if dev == 1:
@@ -8,15 +9,20 @@ if dev == 1:
 elif dev == 2: #Асуса нет
         print ('Данный функционал на данный момент не реализован')
         quit()
+        
+def on_press(key):
 
 def data(): #Ввод и проверка данных до передачи в переменные функций-редакторов
+    keyboard_listener = keyboard.Listener(on_press=on_press)
+    keyboard_listener.start()
     while True:
         resp = input()
         if resp:
-            confirm = input(f"{resp} - давнные верны? (y/n)?")
+            confirm = on_press(f"{resp} - давнные верны? (y/n)?")
             if confirm.lower() == 'y':
                 return resp
         print ('Повторите ввод')
+    keyboard_listener.stop()
     
 def multifru_net(): #Функция обновления полей(удаленно) при наличии двух FRU на сервере
     print ('Модель шасси (производителя): ')
