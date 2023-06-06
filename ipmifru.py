@@ -11,9 +11,9 @@ elif dev == 2: #Асуса нет
 
 def data():
     while True:
-        resp = input(inpt)
+        resp = input()
         if chk(resp):
-            confirm = input(f"{inpt} - давнные верны? (y/n)?")
+            confirm = input(f"{resp} - давнные верны? (y/n)?")
             if confirm.lower() == 'y':
                 return resp
         print ('Повторите ввод')
