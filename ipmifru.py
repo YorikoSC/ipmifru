@@ -9,9 +9,9 @@ elif dev == 2: #Асуса нет
         print ('Данный функционал на данный момент не реализован')
         quit()
 
-def data(inpt):
+def data():
     while True:
-        inpt = input()
+        inpt = str(input())
         def chk(inpt):
             confirm = input(f"{inpt} - давнные верны? (y/n)?")
             if confirm.lower() == 'y':
