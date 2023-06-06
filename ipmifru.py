@@ -9,13 +9,13 @@ elif dev == 2: #Асуса нет
         print ('Данный функционал на данный момент не реализован')
         quit()
 
-def data():
+def data(inpt):
     while True:
-        inpt = str(input())
-        if chk(inpt):
+        resp = input(inpt)
+        if chk(resp):
             confirm = input(f"{inpt} - давнные верны? (y/n)?")
             if confirm.lower() == 'y':
-                return inpt
+                return resp
         print ('Повторите ввод')
     
 def multifru_net(): #Функция обновления полей(удаленно) при наличии двух FRU на сервере
