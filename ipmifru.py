@@ -9,7 +9,7 @@ elif dev == 2: #Асуса нет
         print ('Данный функционал на данный момент не реализован')
         quit()
 
-def data(inpt):
+def data():
     while True:
         resp = input(inpt)
         if chk(resp):
@@ -21,7 +21,7 @@ def data(inpt):
 def multifru_net(): #Функция обновления полей(удаленно) при наличии двух FRU на сервере
     #CPN = str(input('Модель шасси (производителя): '))#
     print ('Модель шасси (производителя): ')
-    CPN = data(inpt)
+    CPN = data()
     CSN = str(input('Серийник шасси: '))
     PN = str(input('Имя сервера: '))
     PPN = str(input('Парт номер(ТИС): '))
