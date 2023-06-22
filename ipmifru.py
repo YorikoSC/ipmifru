@@ -5,9 +5,9 @@ from sys import platform
 
 
 def OScheck():
-    if sys.platform.startswith('win32'):
+    if platform.startswith('win32'):
         return ('C:/ipmitool/ipmitool.exe')
-    elif sys.platform.startswith('linux'):
+    elif platform.startswith('linux'):
         return ('/usr/bin/ipmitool')
     
 ipmitool = OScheck()    
