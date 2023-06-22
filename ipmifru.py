@@ -6,7 +6,7 @@ from sys import platform
 
 def OScheck():
     if platform.startswith('win32'):
-        return ('C:/ipmitool/ipmitool.exe')
+        return ("C:\ipmitool\ipmitool.exe")
     elif platform.startswith('linux'):
         return ('/usr/bin/ipmitool')
     
