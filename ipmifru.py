@@ -190,7 +190,7 @@ def siglefru_local():#Функция обновления полей(локал�
 def local_srv(): #Функция локального обновления FRU
     com = str(input('Шьём весь FRU (y/n): '))
     if com == ('n'):
-        shell = subprocess.run([ipmitool(), 'shell'])
+        shell = subprocess.run([ipmitool, 'shell'])
     elif com == ('y'):
         frucount = int(input('Количество FRU на сервере: '))
     if frucount == 1:
@@ -204,7 +204,7 @@ def local_srv(): #Функция локального обновления FRU
 def remote_srv(): #Функция удалённого обновления FRU
     com = str(input('Шьём весь FRU (y/n): '))
     if com == ('n'):
-        shell = subprocess.run([ipmitool(), '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
+        shell = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
     elif com == ('y'):
         frucount = int(input('Количество FRU на сервере: '))
     if frucount == 1:
