@@ -3,10 +3,13 @@ import subprocess
 from sys import executable
 from sys import platform
 
-if platform == "linux" or platform == "linux2":
-    ipmitool = (ipmitool)
-elif platform == "win32":
-    ipmitool = ('C:\ipmitool\ipmitool.exe')
+ipmitool = str(input())
+if sys.platform.startswith('linux'):
+    print ('Ваща ОС - Linux') 
+    ipmitool = ('/usr/bin/ipmitool')
+elif sys.platform.startswith('win32'):
+    print ('Ваща ОС - Linux')
+    ipmitool = ('C:/ipmitool/ipmitool.exe')
     
     
 dev = int(input('Выбирете производителя: Gigabyte(1) или ASUS(2): '))#Выбор девелопера.
@@ -180,7 +183,7 @@ def siglefru_local():#Функция обновления полей(локал�
     print(frulist.stdout)
     checkback = input('Всё верно?(y/n): ')#Подтверждение правильности ввода.
     if checkback == 'n':
-       process = subprocess.run([ipmitool, 'shell'])
+       shell = subprocess.run([ipmitool, 'shell'])
     else:
        print('Обновление завершено. Произведите сброс питания и убедитесь в фиксации заданных параметров!')
        quit()
@@ -188,7 +191,7 @@ def siglefru_local():#Функция обновления полей(локал�
 def local_srv(): #Функция локального обновления FRU
     com = str(input('Шьём весь FRU (y/n): '))
     if com == ('n'):
-        process = subprocess.run([ipmitool, 'shell'])
+        shell = subprocess.run([ipmitool(), 'shell'])
     elif com == ('y'):
         frucount = int(input('Количество FRU на сервере: '))
     if frucount == 1:
@@ -202,7 +205,7 @@ def local_srv(): #Функция локального обновления FRU
 def remote_srv(): #Функция удалённого обновления FRU
     com = str(input('Шьём весь FRU (y/n): '))
     if com == ('n'):
-        process = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
+        shell = subprocess.run([ipmitool(), '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
     elif com == ('y'):
         frucount = int(input('Количество FRU на сервере: '))
     if frucount == 1:
