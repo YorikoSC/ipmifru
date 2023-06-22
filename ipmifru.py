@@ -1,7 +1,14 @@
 #!/usr/bin/python3.11
 import subprocess
 from sys import executable
+from sys import platform
 
+if platform == "linux" or platform == "linux2":
+    ipmitool = (ipmitool)
+elif platform == "win32":
+    ipmitool = ('C:\ipmitool\ipmitool.exe')
+    
+    
 dev = int(input('Выбирете производителя: Gigabyte(1) или ASUS(2): '))#Выбор девелопера.
 if dev == 1:
         loc = int(input('Выбирете режим: Локально(1) или удалённо(2): '))
@@ -31,35 +38,35 @@ def multifru_net(): #Функция обновления полей(удален
     PSN = data()
     print ('Asset tag: ')
     PAT = data()
-    processCPN_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCPN_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCPN_0.stdout)
-    processCSN_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCSN_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCSN_0.stdout)
-    processPN_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPN_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPN_0.stdout)
-    processPPN_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPPN_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPPN_0.stdout)
-    processPSN_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPSN_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPSN_0.stdout)
-    processPAT_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPAT_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPAT_0.stdout)
-    processCPN_1 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCPN_1 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCPN_1.stdout)
-    processCSN_1 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCSN_1 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCSN_1.stdout)
-    processPN_1 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPN_1 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPN_1.stdout)
-    processPPN_1 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPPN_1 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPPN_1.stdout)
-    processPSN_1 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPSN_1 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPSN_1.stdout)
-    processPAT_1 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPAT_1 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '1', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPAT_1.stdout)
-    frulist = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'list'], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')# Команда вывода общего списка заполненных полей
+    frulist = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'list'], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')# Команда вывода общего списка заполненных полей
     print(frulist.stdout)
     checkback = input('Всё верно?(y/n): ')#Подтверждение правильности ввода.
     if checkback == 'n':
-       process = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
+       process = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
     else:
        print('Обновление завершено. Произведите сброс питания и убедитесь в фиксации заданных параметров!')
        quit()
@@ -77,23 +84,23 @@ def siglefru_net():#Функция обновления полей(удалён�
     PSN = data()
     print ('Asset tag: ')
     PAT = data()
-    processCPN_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCPN_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCPN_0.stdout)
-    processCSN_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCSN_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCSN_0.stdout)
-    processPN_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPN_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPN_0.stdout)
-    processPPN_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPPN_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPPN_0.stdout)
-    processPSN_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPSN_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPSN_0.stdout)
-    processPAT_0 = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPAT_0 = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'edit', '0', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPAT_0.stdout)
-    frulist = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'list'], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')# Команда вывода общего списка заполненных полей
+    frulist = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'fru', 'list'], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')# Команда вывода общего списка заполненных полей
     print(frulist.stdout)
     checkback = input('Всё верно?(y/n): ')#Подтверждение правильности ввода.
     if checkback == 'n':
-       process = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
+       process = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
     else:
        print('Обновление завершено. Произведите сброс питания и убедитесь в фиксации заданных параметров!')
        quit()
@@ -111,35 +118,35 @@ def multifru_local(): #Функция обновления полей(локал
     PSN = data()
     print ('Asset tag: ')
     PAT = data()
-    processCPN_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCPN_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCPN_0.stdout)
-    processCSN_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCSN_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCSN_0.stdout)
-    processPN_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPN_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPN_0.stdout)
-    processPPN_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPPN_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPPN_0.stdout)
-    processPSN_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPSN_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPSN_0.stdout)
-    processPAT_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPAT_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPAT_0.stdout)
-    processCPN_1 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '1', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCPN_1 = subprocess.run([ipmitool, 'fru', 'edit', '1', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCPN_1.stdout)
-    processCSN_1 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '1', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCSN_1 = subprocess.run([ipmitool, 'fru', 'edit', '1', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCSN_1.stdout)
-    processPN_1 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '1', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPN_1 = subprocess.run([ipmitool, 'fru', 'edit', '1', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPN_1.stdout)
-    processPPN_1 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '1', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPPN_1 = subprocess.run([ipmitool, 'fru', 'edit', '1', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPPN_1.stdout)
-    processPSN_1 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '1', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPSN_1 = subprocess.run([ipmitool, 'fru', 'edit', '1', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPSN_1.stdout)
-    processPAT_1 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '1', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPAT_1 = subprocess.run([ipmitool, 'fru', 'edit', '1', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPAT_1.stdout)
-    frulist = subprocess.run(['/usr/bin/ipmitool', 'fru', 'list'], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')# Команда вывода общего списка заполненных полей
+    frulist = subprocess.run([ipmitool, 'fru', 'list'], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')# Команда вывода общего списка заполненных полей
     print(frulist.stdout)
     checkback = input('Всё верно?(y/n): ')#Подтверждение правильности ввода.
     if checkback == 'n':
-       process = subprocess.run(['/usr/bin/ipmitool', 'shell'])
+       process = subprocess.run([ipmitool, 'shell'])
     else:
        print('Обновление завершено. Произведите сброс питания и убедитесь в фиксации заданных параметров!')
        quit()
@@ -157,23 +164,23 @@ def siglefru_local():#Функция обновления полей(локал�
     PSN = data()
     print ('Asset tag: ')
     PAT = data()
-    processCPN_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCPN_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'c', '0', CPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCPN_0.stdout)
-    processCSN_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processCSN_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'c', '1', CSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processCSN_0.stdout)
-    processPN_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPN_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'p', '1', PN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPN_0.stdout)
-    processPPN_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPPN_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'p', '2', PPN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPPN_0.stdout)
-    processPSN_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPSN_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'p', '4', PSN], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPSN_0.stdout)
-    processPAT_0 = subprocess.run(['/usr/bin/ipmitool', 'fru', 'edit', '0', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    processPAT_0 = subprocess.run([ipmitool, 'fru', 'edit', '0', 'field', 'p', '5', PAT], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     print(processPAT_0.stdout)
-    frulist = subprocess.run(['/usr/bin/ipmitool', 'fru', 'list'], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')# Команда вывода общего списка заполненных полей
+    frulist = subprocess.run([ipmitool, 'fru', 'list'], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')# Команда вывода общего списка заполненных полей
     print(frulist.stdout)
     checkback = input('Всё верно?(y/n): ')#Подтверждение правильности ввода.
     if checkback == 'n':
-       process = subprocess.run(['/usr/bin/ipmitool', 'shell'])
+       process = subprocess.run([ipmitool, 'shell'])
     else:
        print('Обновление завершено. Произведите сброс питания и убедитесь в фиксации заданных параметров!')
        quit()
@@ -181,7 +188,7 @@ def siglefru_local():#Функция обновления полей(локал�
 def local_srv(): #Функция локального обновления FRU
     com = str(input('Шьём весь FRU (y/n): '))
     if com == ('n'):
-        process = subprocess.run(['/usr/bin/ipmitool', 'shell'])
+        process = subprocess.run([ipmitool, 'shell'])
     elif com == ('y'):
         frucount = int(input('Количество FRU на сервере: '))
     if frucount == 1:
@@ -195,7 +202,7 @@ def local_srv(): #Функция локального обновления FRU
 def remote_srv(): #Функция удалённого обновления FRU
     com = str(input('Шьём весь FRU (y/n): '))
     if com == ('n'):
-        process = subprocess.run(['/usr/bin/ipmitool', '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
+        process = subprocess.run([ipmitool, '-I', 'lanplus', '-H', ip, '-U',login, '-P', pwd, 'shell'])
     elif com == ('y'):
         frucount = int(input('Количество FRU на сервере: '))
     if frucount == 1:
