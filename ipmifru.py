@@ -3,15 +3,15 @@ import subprocess
 from sys import executable
 from sys import platform
 
-ipmitool = str(input())
-if sys.platform.startswith('linux'):
-    print ('Ваща ОС - Linux') 
-    ipmitool = ('/usr/bin/ipmitool')
-elif sys.platform.startswith('win32'):
-    print ('Ваща ОС - Linux')
-    ipmitool = ('C:/ipmitool/ipmitool.exe')
+
+def OScheck():
+    resp = input()
+    if resp = sys.platform.startswith('win32'):
+        return ('C:/ipmitool/ipmitool.exe')
+    elif resp = sys.platform.startswith('linux'):
+        return ('/usr/bin/ipmitool')
     
-    
+ipmitool = OScheck()    
 dev = int(input('Выбирете производителя: Gigabyte(1) или ASUS(2): '))#Выбор девелопера.
 if dev == 1:
         loc = int(input('Выбирете режим: Локально(1) или удалённо(2): '))
